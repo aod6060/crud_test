@@ -1,0 +1,3 @@
+/*
+    This is the applications starting point for every project.
+*/
