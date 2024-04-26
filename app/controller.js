@@ -1,15 +1,20 @@
 /*
     This is were all of the controller will be placed in
 */
+const model = require('./model')
+model.init();
+
+function index(req, res) {
+    model.getAllMessages().then((values) => {
+        console.log(values);
+
+        res.render("index", {values: values});
+    });
+}
 
 module.exports = {
-    init: (conf) => {
-        // Controller Routs
-        this.index = (req, res) => {
-            res.render('index')
-        }
-
-        // Setting up routs.
-        conf.app.get('/', this.index);
+    init: (app) => {
+        // Handle roughts
+        app.get('/', index);
     }
 };

@@ -25,7 +25,29 @@
                 to speed up development time. If you don't want to use it just remove it from public
                 ./public/css and ./public/js folders.
             </p>
+
+
+            <p>
+                Database test to see if it works.
+
+            <%
+            
+            for(i = 0; i < values.length; i++) {
+
+                let v = values[i];
+
+                %>
+<p>
+    <%= v.dataValues.id %>: <%= v.dataValues.message %>
+</p>
+                <%
+            }
+
+            %>
+
+            </p>
         </div>
+
 
         <script src="/js/bootstrap.bundle.min.js"></script>
         
