@@ -33,5 +33,9 @@ Make sure both npm, sqlite3, and node are installed on your system if you decide
 After all of this initialize just simple run...
 node backend.js
 
+```
+node backend.js
+```
+
 This should run the application on localhost using port 3000 or simple goto
 http://localhost:3000 if running.
