@@ -1,2 +1,4 @@
-npm intall
-sqlite3 -init example.db
+npm install
+sqlite3 example.db
+.save example.db
+.quit
