@@ -5,10 +5,8 @@ const model = require('./model')
 model.init();
 
 function index(req, res) {
-    model.getAllMessages().then((values) => {
-        console.log(values);
-
-        res.render("index", {values: values});
+    model.view_all_messages().then((values) => {
+        res.render('index', {values: values});
     });
 }
 

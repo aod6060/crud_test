@@ -1,55 +1,26 @@
-<!DOCTYPE html>
-<html data-bs-theme="dark">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">    
-        <title>Derf's Simple Node Web Template (DSNWT)</title>
-        <link href="/css/bootstrap.min.css" rel="stylesheet">
-    </head>
-  
-    </head>
-    <body>
-        <div class="container">
-            <h1>Derf's Simple Node Web Template (DSNWT)</h1>
+<%- include('header.ejs') %>
 
-            <p>
-                If your seeing this then you've successfully installed DSNWT. Look
-                at model.js, config.js, and controller.js in the app folder to start working on
-                your web app. All views are located in the 'views' folder and if
-                you need static content such is client side *.js file, *.css files
-                images like *.png and *.jpg place them in the public folder.
-            </p>
-
-            <p>
-                I've also included <a href="https://getbootstrap.com/">bootstrap</a> part of this 
-                to speed up development time. If you don't want to use it just remove it from public
-                ./public/css and ./public/js folders.
-            </p>
+<div class="mb-3">
+    <a href="#" class="btn btn-primary">New</a>
+</div>
 
 
-            <p>
-                Database test to see if it works.
+<%
+    for(let i = 0; i < values.length; i++) {
+        let v = values[i];
+%>
+<div class="card mb-3">
+    <div class="card-header">
+        <h5 class="card-title"><%= v.dataValues.id %></h5>
+    </div>
+    <div class="card-body">
+        <p class="card-text"><%= v.dataValues.message %></p>
+        <a href="#" class="btn btn-primary">Edit</a> | 
+        <a href="#" class="btn btn-danger">Delete</a>
+    </div>
+</div>
+<%
+    }
+%>
 
-            <%
-            
-            for(i = 0; i < values.length; i++) {
-
-                let v = values[i];
-
-                %>
-<p>
-    <%= v.dataValues.id %>: <%= v.dataValues.message %>
-</p>
-                <%
-            }
-
-            %>
-
-            </p>
-        </div>
-
-
-        <script src="/js/bootstrap.bundle.min.js"></script>
-        
-    </body>
-</html>
+<%- include('footer.ejs') %>
