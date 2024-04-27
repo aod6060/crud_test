@@ -36,15 +36,35 @@ function new_message_post(req, res) {
 
 
 function edit_message(req, res) {
-
+    if(typeof req.params.id == 'undefined') {
+        res.redirect('/');
+    } else {
+        model.view_message_by_id(req.params.id).then((value) => {
+            res.render('edit', {value: value});
+        });
+    }
 }
 
 function edit_message_error(req, res) {
-
+    if(typeof req.params.id == 'undefined') {
+        res.redirect('/');
+    } else {
+        model.view_message_by_id(req.params.id).then((value) => {
+            res.render('edit', {value: value, error: req.params.message});
+        });
+    }
 }
 
 function edit_message_post(req, res) {
-
+    if(req.body.message == "") {
+        let message = "Message text box requires a message to be posted.";
+        res.redirect(`/edit/${req.params.id}/error/${message}`)
+    } else {
+        //res.redirect('/');
+        model.update_message(req.params.id, req.body.message).then((value) => {
+            res.redirect('/');
+        })
+    }
 }
 
 module.exports = {
@@ -54,10 +74,12 @@ module.exports = {
         app.get('/', index);
         // New 
         app.get('/new', new_message);
-        app.post('/new', new_message_post);
         app.get('/new/error/:message', new_message_error);
+        app.post('/new', new_message_post);
         // Edit
-
+        app.get('/edit/:id', edit_message);
+        app.get('/edit/:id/error/:message', edit_message_error);
+        app.post('/edit/:id', edit_message_post);
         // Delete
     }
 };
