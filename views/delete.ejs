@@ -1,0 +1,11 @@
+<%- include('header.ejs') %>
+<div class="mb-3">
+    Are you sure you want to delete "<%= value.dataValues.message %>?"
+</div>
+<div class="mb-3">
+    <form action="/delete/<%= value.dataValues.id %>" method="post">
+        <input type="submit" value="Yes" class="btn btn-danger" /> |
+        <input type="button" value="No" onclick="history.back()" class="btn btn-primary">
+    </form>
+</div>
+<%- include('footer.ejs') %>

@@ -6,6 +6,13 @@
 
 
 <%
+    if(values.length == 0) {
+%>
+        <div class="mb-3">
+            There are currently no messages. Please create a new message.
+        </div>
+<%
+    } else {
     for(let i = 0; i < values.length; i++) {
         let v = values[i];
 %>
@@ -16,11 +23,12 @@
     <div class="card-body">
         <p class="card-text"><%= v.dataValues.message %></p>
         <a href="/edit/<%= v.dataValues.id %>" class="btn btn-primary">Edit</a> | 
-        <a href="#" class="btn btn-danger">Delete</a>
+        <a href="/delete/<%= v.dataValues.id %>" class="btn btn-danger">Delete</a>
     </div>
 </div>
 <%
     }
+}
 %>
 
 <%- include('footer.ejs') %>

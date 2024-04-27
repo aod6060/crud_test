@@ -68,6 +68,17 @@ function edit_message_post(req, res) {
 }
 
 
+function delete_message(req, res) {
+    model.view_message_by_id(req.params.id).then((value) => {
+        res.render('delete', {value: value});
+    });
+}
+
+function delete_message_post(req, res) {
+    model.delete_message(req.params.id).then((value) => {
+        res.redirect('/');
+    });
+}
 
 module.exports = {
     init: (app) => {
@@ -83,5 +94,7 @@ module.exports = {
         app.get('/edit/:id/error/:message', edit_message_error);
         app.post('/edit/:id', edit_message_post);
         // Delete
+        app.get('/delete/:id', delete_message);
+        app.post('/delete/:id', delete_message_post);
     }
 };
