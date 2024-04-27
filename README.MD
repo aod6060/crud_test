@@ -21,13 +21,13 @@ chmod u+x initialize.sh
 ./initialize.sh
 ```
 
-These script files will automatically install npm dependencies and create the example.db for the template. If you want to do it manually just open either command line/power shell under windows or terminal under linux and run these commands
+These script files will automatically install npm dependencies. If you want to do it manually just open either command line/power shell under windows or terminal under linux and run these commands
 
 ```
 npm install
 ```
 
-Make sure both npm, sqlite3, and node are installed on your system if you decided to use this template for a web project.
+Make sure both npm, sqlite3, and node are installed on your system if you want to this example.
 
 After all of this initialize just simple run...
 node backend.js
