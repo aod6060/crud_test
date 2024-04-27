@@ -16,7 +16,7 @@ const Message = sequelize.define(
     }
 );
 
-let debug = true;
+let debug = false;
 
 async function init_database() {
     if(debug) {

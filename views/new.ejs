@@ -1,0 +1,35 @@
+<%- include('header.ejs') %>
+
+<%
+
+    if(typeof error != 'undefined') {
+%>
+<div class="card text-white bg-danger mb-3">
+    <div class="card-header">
+        <h5 class="card-title">Error</h5>
+    </div>
+    <div class="card-body">
+        <p>
+            <%= error %>
+        </p>
+    </div>
+</div>
+<%
+    }
+%>
+
+<form action="/new" method="post">
+    <div class="mb-3">
+        <label for="message" class="form-label">Message</label>
+        <textarea id="message" name="message" class="form-control"></textarea>
+    </div>
+    <div class="mb-3">
+        <input type="submit" value="New Message" class="btn btn-primary"/>
+    </div>
+</form>
+
+<div class="mb-3">
+    <a href="/">Back to View All Messages</a>
+</div>
+
+<%- include('footer.ejs') %>
