@@ -1,10 +1,10 @@
-# Derf's Simple Node Web Template
+# Crud App Test
 
 
-This is a simple template that will help me develop node web applications alot faster. If you want to use it go for it. 
+This is just a simple test to see if the template is working as intened. So far I'm pretty happy with it.
 
 
-To initialize this template and grab all of its depends just run.
+To initialize this project and grab all of its depends just run.
 
 Windows:
 
@@ -25,7 +25,6 @@ These script files will automatically install npm dependencies and create the ex
 
 ```
 npm install
-sqlite3 example.db ".save example.db"
 ```
 
 Make sure both npm, sqlite3, and node are installed on your system if you decided to use this template for a web project.
